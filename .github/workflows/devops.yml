@@ -21,7 +21,7 @@ jobs:
     - name: Format code
       run: |
         make format
-    -name: Build Container
+    - name: Build container
       run: |
       make build
     
