@@ -23,6 +23,6 @@ jobs:
         make format
     - name: Build container
       run: |
-      make build
+        make build
     
     
