@@ -1,4 +1,5 @@
-FROM python:3.10.8-slim-buster
+# FROM python:3.10.8-slim-buster
+FROM public.ecr.aws/docker/library/python:3.10.8-slim-buster
 
 RUN mkdir -p /app
 COPY . main.py /app/
