@@ -21,7 +21,7 @@ run:
 deploy:
 	#deploy
 	aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 759974195639.dkr.ecr.us-west-2.amazonaws.com
-	docker build -t fastapi-wiki .
-	docker tag fastapi-wiki:latest 759974195639.dkr.ecr.us-west-2.amazonaws.com/fastapi-wiki:latest
-	docker push 759974195639.dkr.ecr.us-west-2.amazonaws.com/fastapi-wiki:latest
+	docker build -t recipe-parse-deploy .
+	docker tag recipe-parse-deploy:latest 759974195639.dkr.ecr.us-west-2.amazonaws.com/recipe-parse-deploy:latest
+	docker push 759974195639.dkr.ecr.us-west-2.amazonaws.com/recipe-parse-deploy:latest
 all: install lint test deploy
