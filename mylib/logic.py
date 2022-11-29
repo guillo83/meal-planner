@@ -4,14 +4,14 @@ from recipe_scrapers import scrape_me
 def recipe(url):
     scraper = scrape_me(url)
     instructions = [i.strip() for i in scraper.instructions().split("\n") if i.strip()]
-    recipe = {
+    recipe_object = {
         'name': scraper.title(),
         'ingredients': scraper.ingredients(),
         'instructions': instructions,
         'image': scraper.image(),
         'url': url,
     }
-    return recipe
+    return recipe_object
 
 
 def wiki(name="War Goddess", length=1):
