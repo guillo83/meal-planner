@@ -1,5 +1,7 @@
-from mylib.logic import wiki
+from mylib.logic import recipe
 
 
 def test_wiki():
-    assert "god" in wiki()
+    parsed = recipe("https://www.allrecipes.com/recipe/158968/spinach-and-feta-turkey-burgers/")
+    print(parsed)
+    assert len(parsed.get('title')) > 0
