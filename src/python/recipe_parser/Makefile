@@ -17,6 +17,7 @@ build:
 run:
 	#run docker
 	# docker images | awk '{print $3}' | awk 'NR==2'
+	# docker run -p 127.0.0.1:8080:8080 5c5b225f5789
 deploy:
 	#deploy
 	aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 759974195639.dkr.ecr.us-west-2.amazonaws.com
