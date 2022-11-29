@@ -2,12 +2,20 @@ from fastapi import FastAPI
 import uvicorn
 from mylib.logic import wiki as get_wiki
 from mylib.logic import search_wiki
+from mylib.logic import recipe
 
 app = FastAPI()
+
 
 @app.get("/")
 async def root():
     return {"message": "Wikipedia API. Call /search or /wiki"}
+
+@app.get("/recipe/")
+async def get_recipe(url: str):
+    """Parse recipe"""
+    return {"result": recipe(url)}
+
 
 @app.get("/search/{value}")
 async def search(value: str):
@@ -15,11 +23,13 @@ async def search(value: str):
     result = search_wiki(value)
     return {"result": result}
 
+
 @app.get("/wiki/{value}")
 async def wiki_logic(value: str):
     """Retrieve wikipedia page"""
-    result =get_wiki(value)
+    result = get_wiki(value)
     return {"result": result}
 
-if __name__ == '__main__':
-    uvicorn.run(app, port=8080, host='0.0.0.0')
+
+if __name__ == "__main__":
+    uvicorn.run(app, port=8080, host="0.0.0.0")
