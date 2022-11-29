@@ -1,5 +1,8 @@
-name: Python application test with Github Actions
+name: Recipe Parser Python application test with Github Actions
 on: [push]
+defaults:
+  run:
+    working-directory: src/python/recipe_parser
 jobs:
   build:
     runs-on: ubuntu-latest
